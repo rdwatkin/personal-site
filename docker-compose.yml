@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+
+  web:
+    build:
+      context:    ./web
+      dockerfile: ./dev.Dockerfile
+    volumes:
+      - ./web:/web
+      - ./web/build:/web/build
+    command: npm start
+
+  server:
+    build:
+      context: ./server
+      dockerfile: ./dev.Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./server:/server
+      - ./web/build:/web
+    links:
+      - mysql
+    command: npm start
+
+  mysql:
+    volumes:
+      - ./mysql-dump:/docker-entrypoint-initdb.d
+    image: mysql:8.0.26
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: rybald
+    ports:
+      - "3308:3306"
