@@ -1,6 +1,7 @@
 const express = require("express")
 const https = require('https')
 const fs = require('fs') // file server
+const mysql = require('mysql2');
 const path = require("path")
 const port = 3000
 
@@ -10,6 +11,19 @@ const credentials = {
   key: key,
   cert: cert,
 }
+
+const con = mysql.createConnection({
+  database: "rybald",
+  user: "root",
+  password: "password",
+  host: "mysql",
+  port: "3306"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
 
 const app = express()
 
