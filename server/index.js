@@ -2,7 +2,6 @@ const express = require('express'),
   bodyParser = require('body-parser'),
   swaggerJsdoc = require('swagger-jsdoc'),
   swaggerUi = require('swagger-ui-express')
-  swaggerDoc = require('./swagger.json')
 const http = require('http')
 const fs = require('fs') // file server
 const path = require('path')
@@ -12,12 +11,6 @@ const skillController = require('./controllers/skillController')
 
 // Env Info
 const port = 3000
-const key = fs.readFileSync(__dirname + '/selfsigned.key')
-const cert = fs.readFileSync(__dirname + '/selfsigned.crt')
-const credentials = {
-  key: key,
-  cert: cert,
-}
 
 // Swagger Doc
 const options = {
@@ -56,10 +49,6 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "/../web", )))
-
-app.get("/", (req, res) => {
-  res.send("Now using http...");
-})
 
 app.use('/api/skill', skillController)
 

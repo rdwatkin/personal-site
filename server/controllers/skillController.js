@@ -1,13 +1,12 @@
 const express = require('express')
-const skillService = require('../services/skillsService.js')
-// TODO: Rename skills to be singular
+const skillService = require('../services/skillService.js')
 // TODO: Use absolute pathing everywhere
 
 const skillController = express.Router()
 
 /**
  * @swagger
- * /api/skill/:
+ * /api/skill:
  *    get:
  *      description: Returns all skills
  *      responses:
@@ -16,7 +15,7 @@ const skillController = express.Router()
  *        '500':
  *          description: Failed to query for skills
  */
- skillController.get('/', (req, res) => {
+ skillController.get('', (req, res) => {
  	try {
  		skillService.getAllSkills().then((data) => {
  			res.json(data)
@@ -27,4 +26,3 @@ const skillController = express.Router()
  })
 
  module.exports = skillController
- 
