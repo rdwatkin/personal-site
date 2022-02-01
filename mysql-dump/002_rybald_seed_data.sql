@@ -16,7 +16,7 @@ INSERT INTO rybald.skill (id, name, description)
 VALUES(
   UUID(),
   "Website Development",
-  "I have experience building and deploying full stack websites using React, JS/TS, Material UI, HTML, CSS, Docker, Kubernetes, Jenkins, Redux, Redis, Java Spring, Go, Postgres, and MySql"
+  "I have experience building and deploying full stack websites using React, Javascript/Typescript, Material UI, HTML, CSS, Docker, Kubernetes, Redux, Java Spring, Go, Python, Postgres, and MySql"
 );
 
 INSERT INTO rybald.skill (id, name, description)

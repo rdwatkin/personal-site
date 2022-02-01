@@ -10,6 +10,8 @@ services:
       - ./web:/web
       - ./web/build:/web/build
     command: npm start
+    links:
+      - server
 
   server:
     build:

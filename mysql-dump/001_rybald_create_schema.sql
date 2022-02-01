@@ -2,6 +2,7 @@ CREATE SCHEMA IF NOT EXISTS rybald;
 CREATE DATABASE IF NOT EXISTS rybald;
 USE rybald;
 
+-- TODO: Delete this table
 CREATE TABLE IF NOT EXISTS rybald.personalInfo (
   id VARCHAR(255),
   name VARCHAR(255) NOT NULL,
