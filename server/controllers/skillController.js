@@ -1,12 +1,12 @@
 const express = require('express')
-const skillService = require('../services/skillService.js')
+const skillService = require('../services/skillService')
 // TODO: Use absolute pathing everywhere
 
 const skillController = express.Router()
 
 /**
  * @swagger
- * /api/skill:
+ * /skill:
  *    get:
  *      description: Returns all skills
  *      responses:
@@ -15,14 +15,16 @@ const skillController = express.Router()
  *        '500':
  *          description: Failed to query for skills
  */
- skillController.get('', (req, res) => {
+skillController.get('', (req, res) => {
  	try {
- 		skillService.getAllSkills().then((data) => {
- 			res.json(data)
- 		})
+ 		skillService.getAllSkills().then(
+ 			(data) => {
+ 				res.json(data)
+			}
+ 		)
  	} catch (err) {
  		console.error('Error while querying for skills: ', err.message)
  	}
- })
+})
 
- module.exports = skillController
+module.exports = skillController

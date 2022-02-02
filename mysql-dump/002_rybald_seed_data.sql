@@ -1,16 +1,3 @@
-
--- Personal Info --
-INSERT INTO rybald.personalInfo (id, name, position, description, headshotKey, email)
-VALUES(
-  UUID(),
-  "Ryan Watkins",
-  "Software Engineer",
-  "I spend my time playing video games, playing basketball, video editing, coding and (occasionally) trying new things!",
-  "fakeFileKey",
-  "rdwatkin@outlook.com"
-);
-
-
 -- Skills --
 INSERT INTO rybald.skill (id, name, description)
 VALUES(
@@ -84,12 +71,11 @@ VALUES(
   "Help Desk & Data Entry: Promptly handled repair requests on a broad range of office technologies to maximize work space efficiency. Maintained and updated electronic client data daily to ensure company information was always up to date."
 );
 
--- Education --
-INSERT INTO rybald.education (id, school, degree, startDate, endDate, description)
+INSERT INTO rybald.experience(id, position, employer, startDate, endDate, description)
 VALUES(
   UUID(),
-  "University of California, Santa Cruz",
   "Bachelor of Science",
+  "University of California, Santa Cruz",
   "2016-09-01",
   "2019-12-01",
   "Major in Computer Science. Graduated with honors. GPA: 3.52 / 4"

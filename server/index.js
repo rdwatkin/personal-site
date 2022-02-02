@@ -6,6 +6,9 @@ const http = require('http')
 const fs = require('fs') // file server
 const path = require('path')
 const cors = require('cors')
+const experienceController = require('./controllers/experienceController')
+const hobbyController = require('./controllers/hobbycontroller')
+const photoController = require('./controllers/photoController')
 const skillController = require('./controllers/skillController')
 
 
@@ -31,7 +34,7 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:3000/",
+        url: "http://localhost:3000/api/",
       },
     ],
   },
@@ -43,13 +46,16 @@ const options = {
 const app = express()
 
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "http://localhost:8081/"
 };
 app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "/../web", )))
 
+app.use('/api/experience', experienceController)
+app.use('/api/hobby', hobbyController)
+app.use('/api/photo', photoController)
 app.use('/api/skill', skillController)
 
 const specs = swaggerJsdoc(options);
