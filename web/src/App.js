@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { HomeView } from 'views'
 
 /* 
 -- Personal Info --
@@ -31,6 +32,9 @@ function App() {
           Learn React
         </a>
       </header>
+      <body>
+        <HomeView/>
+      </body>
     </div>
   );
 }
