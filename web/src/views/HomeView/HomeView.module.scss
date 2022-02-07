@@ -8,9 +8,13 @@
 }
 
 .profile {
-  width: 50%;
   min-width: 375px;
   object-fit: contain;
+  width: 100%;
+}
+
+.profileContainer {
+  width: 50%;
 }
 
 .description {
@@ -20,7 +24,7 @@
 }
 
 .descriptionContainer {
-  width: 35%;
+  width: 45%;
   justify-content: center;
   align-items: center;
   padding-bottom: 70px;
