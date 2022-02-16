@@ -1,6 +1,19 @@
-import './App.css';
+import React from 'react'
+import { theme } from 'theme'
 import { HomeView } from 'views'
 import { Header } from 'components'
+import {
+  CssBaseline,
+  ThemeProvider,
+} from '@mui/material'
+import configureStore from 'store'
+import { Provider } from 'react-redux'
+import {
+  HashRouter,
+  Navigate,
+  Route,
+  Routes,
+} from 'react-router-dom'
 
 /* 
 -- Personal Info --
@@ -15,14 +28,22 @@ VALUES(
 );
 */
 
+const store = configureStore(window.__INITIAL_STATE__)
+
 function App() {
   return (
-    <div className="App">
-      <Header/>
-      <body>
-        <HomeView/>
-      </body>
-    </div>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <HashRouter>
+          <CssBaseline/>
+          <Header/>
+          <Routes>
+            <Route path='/home' element={<HomeView/>}/>
+            <Route path='*' element={<Navigate replace to={'./home'}/>}/>
+          </Routes>
+        </HashRouter>
+      </ThemeProvider>
+    </Provider>
   );
 }
 

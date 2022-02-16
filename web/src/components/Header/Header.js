@@ -13,6 +13,7 @@ import {
   useScrollTrigger,
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
+import { palette } from 'theme'
 
 const pages = ['About', 'Experience', 'Hobbies', 'Contact']
 
@@ -39,7 +40,7 @@ const Header = () => {
           <Button
             key={page}
             onClick={handleCloseNavMenu}
-            sx={{ my: 2, color: '#f8f8f3', display: 'block' }}
+            sx={{ my: 2, color: palette.white.main, display: 'block' }}
           >
             {page}
           </Button>

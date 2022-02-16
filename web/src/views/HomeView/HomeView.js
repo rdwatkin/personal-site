@@ -1,13 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   Box,
   Typography,
   Stack,
 } from '@mui/material'
+import { useDispatch } from 'react-redux'
+import { palette } from 'theme'
+import { getAllExperiences } from 'store/actions'
 import styles from './HomeView.module.scss'
 import profileBlob from '../../assets/pictures/profileBlob.png'
 
 export const HomeView = () => {
+
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getAllExperiences())
+  }, [dispatch])
+
   return (
     <Box
       className={styles.home}
@@ -32,7 +41,7 @@ export const HomeView = () => {
                   padding: '15px',
                 }}
               >
-                <Typography variant='h6' sx={{ color: '#a16a91' }}>Software Engineer</Typography>
+                <Typography variant='h6' sx={{ color: palette.purple.main }}>Software Engineer</Typography>
                 <Typography
                   variant='h3'
                   sx={{
@@ -45,7 +54,7 @@ export const HomeView = () => {
                 <Typography
                   variant='h6'
                   sx={{
-                    color: '#646464',
+                    color: palette.grey._60,
                     textAlign: 'left',
                   }}
                 >
